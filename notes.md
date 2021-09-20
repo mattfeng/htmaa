@@ -1,4 +1,4 @@
-# vinyl cutter and snap fit joint
+# vinyl cutter and snap fit joint (2021-09-19)
 
 ## vinyl cutter notes
 
@@ -17,4 +17,17 @@
 - you can now remove vcB, which will expose the sticky back part of vcD
 - stick the `(tpT - tpS | vcD)` onto your desired surface (ds); it will stick because of vcD's sticky back
   - the result is `tpT - tpS | vcD | ds`
-- carefully attempt to remove tp; the goal is to have the adhesion between tpS and vcD be less than the adhesion between vcD and ds. you may need to use tweezers here
+- carefully attempt to remove tp; you may need to use tweezers here
+  - don't use a ds like paper, because why you try to remove tp, you will tear the paper and the result will be sad
+
+## cad notes
+- red construction line = underconstrained
+- black construction line = full constrained
+- constraining to midpoint:
+  - create midpoint (triangle symbol), then coincident to midpoint
+- **avoid exporting your construction lines in dxf.** when exporting your sketch to DXF, to avoid the construction lines, you should extrude your sketch to a body, then select a face of that body, create a sketch from it, and export that sketch to a DXF.
+
+## laser cutter notes
+- snap fit joints aren't the most suitable for cardboard, because cardboard doesn't have the flexibility to stretch in order to place the two notches together. they are definitely stronger in preventing the cardboard from sliding back out, however.
+- right side laser
+  - 100% power, 10% speed, 1000 rate, 0.22 z-axis
