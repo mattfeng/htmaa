@@ -7,6 +7,14 @@ module.exports = {
     siteUrl: `http://fab.cba.mit.edu/classes/MAS.863/EECS/people/mattfeng/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    `gatsby-plugin-mdx`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
