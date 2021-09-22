@@ -1,9 +1,24 @@
-# week 1: computer controlled cutting
+# week 1: computer controlled cutting, git
 
 ## things to remember
 
 ### [mods](https://mods.cba.mit.edu)
 - **getting to the PNG cutting program.** right-click for menu, then select: `programs > open server program` and select `Roland / vinyl cutter / GX-24 / cut png` (the forward slash `/` indicates a tab in the programs listing).
+
+### gatsby
+- **`gatsby clean`**. after editing assets, always clean up the old, cached assets, otherwise things (e.g. image links)
+- **`npm install gatsby-remark-copy-linked-files`**.
+
+### bash tricks
+```bash
+# compressing all my images at once
+for f in $(ls); do convert $f -quality 50% -resize 1000 out/$f; done
+```
+
+### ffmpeg
+```bash
+ffmpeg -i 20_final_product.mov -vcodec libx264 -b:v 1000k -vf scale=-2:1080 -an 20_final_product.mp4
+```
 
 ---
 
@@ -23,7 +38,7 @@
   - the vinyl cut (vc) has two sides: side D is the side with the cut design; side B is the backing (the backing should not have been cut by the vinyl cutter)
 - cut a piece of **transfer paper** (tp) that is larger than your design. the transfer paper has two sides: side S is the sticky side, and side T is the textured side.
 - place the tp and vc together so that the four faces look like the following
-  - tpT - tpS | vcD | vcB
+  - `tpT - tpS | vcD | vcB`
   - note that tp is actually a single layer, which is why its two sides are separated with a dash rather than a pipe
 - you can now remove vcB, which will expose the sticky back part of vcD
 - stick the `(tpT - tpS | vcD)` onto your desired surface (ds); it will stick because of vcD's sticky back
@@ -31,7 +46,7 @@
 - carefully attempt to remove tp; you may need to use tweezers here
   - don't use a ds like paper, because why you try to remove tp, you will tear the paper and the result will be sad
 
-![Don't use paper as your desired surface](../images/wk1/0_dont_use_paper.jpg)
+![Don't use paper as your desired surface.](../images/wk1/0_dont_use_paper.jpg)
 
 ### cad notes
 - red construction line = underconstrained
@@ -46,13 +61,16 @@
   - 100% power, 10% speed, 1000 rate, 0.22 z-axis
 
 ### progress
-- i cut some snapfit joints to practice both CAD and using the laser cutter
-- 
+- i cut some snapfit joints to practice both CAD and using the laser cutter; the snapfit model lets you parameterize the square size, notch size, and clip diameter.
+
+![Snapfit CAD model.](../images/wk1/6a_snapfit_joint_cad.jpg)
+![Snapfit joint.](../images/wk1/6_snapfit.jpg)
+
 
 ## 2021-09-20 &mdash; working on the press-fit construction kit
 
 ### general tricks
-- use github to transfer unsensitive files. because the machines usually have internet access, it's easier to pull files down from github than to log in and log out every time you need a file
+- **use github to transfer unsensitive files.** because the machines usually have internet access, it's easier to pull files down from github than to log in and log out every time you need a file
 
 ### laser cutting
 - a 1.5 inch bond length is too large
@@ -66,6 +84,33 @@
 - the final challenge was figuring out how to get the model to stand
 
 ### progress
+- i realized that my model isn't able to stand on its own, because it doesn't have any legs to use to support itself; i'm going to need to design something tomorrow
 
+![DNA is partially assembled but it doesn't have any legs.](../images/wk1/11_dna_partial_assembly.jpg)
 
 ## 2021-09-21 &mdash; trying to make my RNA model structurally sound
+
+### progress
+- i CADed a couple of models for the legs to support the DNA model
+- i also decided to make an RNA model rather than DNA model (double helix); (this note is after-the-fact: the double helix should be possible because the legs supporting the model can be used to support both chains).
+- here I am using the laser cutter to cut the final model of the legs
+
+<video width="600" controls>
+  <source src="../videos/wk1/14_laser_cutting.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+- the legs were still unstable because they need to be lifted at the same time, but with two hands that is impossible, so...
+- i had to hot-glue the legs to a cardboard base because i wasn't sure how to make press-fit joints that would sit flush on the base
+
+### the final product!
+
+<video width="600" controls>
+  <source src="../videos/wk1/20_final_product.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+## 2021-09-22 &mdash; making my website
+
+### progress
+- using [Gatsby](https://www.gatsbyjs.com/) because programming websites in React makes making cool stuff a lot easier.

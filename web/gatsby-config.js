@@ -1,4 +1,7 @@
 module.exports = {
+  flags: {
+    DEV_SSR: false,
+  },
   pathPrefix: `/classes/MAS.863/EECS/people/mattfeng`,
   siteMetadata: {
     title: `/mattfeng/how to make almost anything`,
@@ -15,6 +18,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/videos`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -39,8 +49,14 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 800,
+              maxWidth: 600,
+              showCaptions: true,
+              wrapperStyle: `text-align: center;`,
             },
+          },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {},
           },
         ],
       },
