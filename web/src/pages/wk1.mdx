@@ -8,11 +8,21 @@
 ### gatsby
 - **`gatsby clean`**. after editing assets, always clean up the old, cached assets, otherwise things (e.g. image links)
 - **`npm install gatsby-remark-copy-linked-files`**.
+- **`gatsby build --prefix-paths`**. use the `pathPrefix` setting in `gatsby-config.js` which will allow custom URL prefixes (necessary for a shared class website like the one we are using in MAS.863)
 
 ### bash tricks
 ```bash
 # compressing all my images at once
 for f in $(ls); do convert $f -quality 50% -resize 1000 out/$f; done
+```
+
+### git
+```bash
+# list file sizes in current directory
+find . -type f  -exec du -h '{}' + | sort -hr
+
+# todo...
+git ls-files --cached
 ```
 
 ### ffmpeg
