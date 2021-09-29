@@ -11,6 +11,12 @@ const IndexPage = () => (
       <li>
         <Link to="/wk1">week 1: computer-controlled cutting, git</Link>
       </li>
+      <li>
+        <Link to="/wk2">week 2: electronics production</Link>
+      </li>
+      <li>
+        <Link to="/todo">todo: things i want to try</Link>
+      </li>
     </ul>
   </>
 )
