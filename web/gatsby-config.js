@@ -1,3 +1,5 @@
+const _ = require("lodash")
+
 module.exports = {
   flags: {
     DEV_SSR: false,
@@ -51,7 +53,7 @@ module.exports = {
             options: {
               maxWidth: 600,
               showCaptions: true,
-              wrapperStyle: `text-align: center;`,
+              wrapperStyle: fluidResult => `flex:${_.round(fluidResult.aspectRatio, 2)};`
             },
           },
           {
