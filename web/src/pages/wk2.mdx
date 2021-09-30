@@ -8,6 +8,7 @@
 - soldering temperature: **750 F**
 - heat gun temperature: **270 to 330 F**
 - can't use a voltmeter to measure shorts on a stuffed PCB because signals can pass through components
+- you need to power both sides of the board (can't program an unpowered board)
 
 ## milling board
 - (x, y, z) = (40, 20, 10)
@@ -53,7 +54,7 @@
 ![Finished (and tested!) soldered product.](../images/wk2/3_finished_product.jpg)
 
 ## relation between &ldquo;CMSIS-DAP.10.D11C&rdquo; and arduino
-- Arduino uses an older MCU: ATmega328
-- SAMD11 can handle USB using its internal clock; Arduino needs another chip to translate serial to the ATmega
-- Arduino uses crystals (XTALs)
+- Arduino Nano uses an older MCU: ATmega328
+- SAMD11 can handle USB using its internal clock; Arduino Nano needs another chip to translate serial to the ATmega
+- Arduino Nano uses crystals (XTALs)
 - otherwise very similar
