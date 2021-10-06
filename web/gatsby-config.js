@@ -12,6 +12,7 @@ module.exports = {
     siteUrl: `http://fab.cba.mit.edu/classes/MAS.863/EECS/people/mattfeng/`,
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
     `gatsby-remark-images`,
@@ -53,7 +54,7 @@ module.exports = {
             options: {
               maxWidth: 600,
               showCaptions: true,
-              wrapperStyle: fluidResult => `flex:${_.round(fluidResult.aspectRatio, 2)};`
+              wrapperStyle: fluidResult => `flex:${_.round(fluidResult.aspectRatio, 2)};`,
             },
           },
           {

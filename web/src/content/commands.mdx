@@ -1,0 +1,17 @@
+# commands cheatsheet
+
+## working with USB devices
+- `lsusb`. check currently attached USBs
+- `system_profiler`. check currently attached USBs
+
+## preparing website
+
+### images
+- compress JPG to quality 50% width 1000:
+    - `convert input.jpg -quality 50% -resize 1000 output.jpg`
+- compress all JPGs to quality 50% width 1000:
+    - `mogrify -quality 50% -resize 1000 *.jpg`
+
+### movies
+- variable bit rate, no audio
+    - `ffmpeg -i input_video -vcodec libx264 -crf 25 -preset medium -vf scale=-2:1080 -an output_video.mp4`

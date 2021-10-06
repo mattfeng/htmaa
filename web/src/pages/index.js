@@ -9,6 +9,9 @@ const IndexPage = () => (
 
     <ul>
       <li>
+        <Link to="/final">final project: liquid handling system</Link>
+      </li>
+      <li>
         <Link to="/wk0">week 0: computer-aided design</Link>
       </li>
       <li>
@@ -18,7 +21,13 @@ const IndexPage = () => (
         <Link to="/wk2">week 2: electronics production</Link>
       </li>
       <li>
+        <Link to="/wk3">week 3: 3d printing and scanning</Link>
+      </li>
+      <li>
         <Link to="/todo">todo: things i want to try</Link>
+      </li>
+      <li>
+        <Link to="/commands">useful commands</Link>
       </li>
     </ul>
   </>
