@@ -1,0 +1,39 @@
+# lecture 4: electronics production
+
+## components
+- capacitor
+    - unpolarized
+        - two plates
+    - polarized
+        - electrochemical
+    - typical capacitance: µF
+- crystals and resonators
+    - voltage -> mechanical displacement -> back to voltage
+    - used to tell time
+- diode
+    - `anode -> cathode`
+    - 0.6 V diode drop
+- schottky diode
+    - polarized
+    - line = cathode = direction current flows
+- zener diode
+- MOSFET
+    - $R_{DS}$ resistance between drain and source
+
+## designing circuits (EDA)
+- ATSAMD11C
+    - [hello.D11C.echo.1.png](http://academy.cba.mit.edu/classes/embedded_programming/D11C/hello.D11C.echo.1.png): needs adaptor from commercial programmer
+        - picture to circuit using EDA
+    - [hello.D11C.echo.png](http://academy.cba.mit.edu/classes/embedded_programming/D11C/hello.D11C.echo.png): standard
+        - 10 pin is standard for commericial programmers, even though not all ten pins are used
+- **footprints**: need libraries of these
+- use **Octopart** to find different **packages**
+    - what is a package (?)
+- design rules
+    - how skinny traces can be
+    - how close traces can be (manufacture)
+    - how close traces can be (signal interference/crosstalk)
+    - how much power can go before overheats
+
+## characterization
+- power supply noise

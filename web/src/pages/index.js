@@ -29,6 +29,16 @@ const IndexPage = () => (
       <li>
         <Link to="/commands">useful commands</Link>
       </li>
+      <li>
+        <Link to="/test">test page</Link>
+      </li>
+    </ul>
+
+    <h2>lecture notes</h2>
+    <ul>
+      <li>
+        <Link to="/lec4">lecture 4: electronics design</Link>
+      </li>
     </ul>
   </>
 )
