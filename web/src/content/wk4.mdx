@@ -26,3 +26,18 @@
 
 ## graphics
 - [**phong shading**](https://en.wikipedia.org/wiki/Phong_shading). `MeshPhongMaterial`
+
+## from eagle to mods ([source: Jake Read](https://archive.is/m0iyF))
+- exporting PNGs that are appropriate for manufacturing using mods in a fab lab is a bit of a trick. We need to get PNGs that are purely black and white, that contain only the layers we want to mill.
+- To export a PNG for the traces, use these commands:
+    - `display none` (make all of the layers invisible)
+    - `display top vias pads` (display top copper layers)
+    - `export image`
+        - export a PNG, use an appropriate DPI (1000 is likely high enough) and use the monochrome option
+- To export a PNG for the outline, we do something similar:
+    - `display none`
+    - `display bottom dimension vias`
+    - `export image`
+        - the same, monochrome, with the same DPI
+
+- [proactive DRC ("property change failed")](https://forums.autodesk.com/t5/fusion-360-electronics/property-change-failed-a-k-a-proactive-drc/td-p/9682405)
