@@ -11,7 +11,7 @@ def add_margin(img, top, right, bottom, left, color=(0, 0, 0)):
     result.paste(img.convert("RGB"), (top, left))
     return result
 
-def main(infile_prefix, bottom, left):
+def main(infile_prefix, top, right, bottom, left):
     images = {
         "traces": Image.open(f"{infile_prefix}_traces.png"),
         "outline": Image.open(f"{infile_prefix}_outline.png")
@@ -24,7 +24,7 @@ def main(infile_prefix, bottom, left):
         assert val.size == (width, height), "boards not of equal dimensions, quitting"
 
     for key, img in images.items():
-        new_image = add_margin(img, 0, 0, bottom, left)
+        new_image = add_margin(img, top, right, bottom, left)
         new_image.save(f"{infile_prefix}_margin_{key}.png", "png", dpi=(1000, 1000))
 
 if __name__ == "__main__":
@@ -32,9 +32,11 @@ if __name__ == "__main__":
 
     parser.add_argument("infile_prefix")
     # 40px / 1000ppi = 0.04 in, approx 1mm
+    parser.add_argument("--top", default=40)
+    parser.add_argument("--right", default=40)
     parser.add_argument("--bottom", default=40)
     parser.add_argument("--left", default=40)
 
     args = parser.parse_args()
 
-    main(args.infile_prefix, args.bottom, args.left)
+    main(args.infile_prefix, args.top, args.right, args.bottom, args.left)
