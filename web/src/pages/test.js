@@ -20,21 +20,47 @@ class TestPage extends Component {
 
         this.renderer.setSize(window.innerWidth, window.innerHeight)
         document.body.appendChild(this.renderer.domElement)
-
-        const geometry = new THREE.BoxGeometry()
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-        const cube = new THREE.Mesh(geometry, material)
-        scene.add(cube)
-
         camera.position.z = 5
 
-        const animate = () => {
+        // make cubes
+        const makeCube = (scene, geometry, color, x) => {
+            const material = new THREE.MeshPhongMaterial({ color })
+            const cube = new THREE.Mesh(geometry, material)
+
+            scene.add(cube)
+            cube.position.x = x
+
+            return cube
+        }
+
+        const geometry = new THREE.BoxGeometry()
+        const cubes = [
+            makeCube(scene, geometry, 0x44aa88, 0),
+            makeCube(scene, geometry, 0x8844aa, -2),
+            makeCube(scene, geometry, 0xaa8844, 2)
+        ]
+
+        // set up light
+        const color = 0xffffff
+        const intensity = 1
+        const light = new THREE.DirectionalLight(color, intensity)
+        light.position.set(-1, 2, 4)
+        scene.add(light)
+
+        const animate = (time) => {
             requestAnimationFrame(animate)
 
-            cube.rotation.x += 0.01
-            cube.rotation.y += 0.01
+            time *= 0.001
+
+            cubes.forEach((cube, ndx) => {
+                const speed = 1 + ndx * .1
+                const rot = time * speed
+                cube.rotation.x = rot
+                cube.rotation.y = rot
+            })
 
             this.renderer.render(scene, camera)
+
         }
 
         animate()
