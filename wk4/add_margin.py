@@ -25,8 +25,7 @@ def main(infile_prefix, bottom, left):
 
     for key, img in images.items():
         new_image = add_margin(img, 0, 0, bottom, left)
-        new_image = new_image.convert("L")
-        new_image.save(f"{infile_prefix}_margin_{key}.png", "png")
+        new_image.save(f"{infile_prefix}_margin_{key}.png", "png", dpi=(1000, 1000))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
