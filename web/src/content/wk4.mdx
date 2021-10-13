@@ -50,7 +50,6 @@
 ## blink
 
 ```c
-//
 // hello.D11C.blink.ino
 //
 // SAMD11C LED blink hello-world
@@ -62,21 +61,20 @@
 // retained and must be preserved. The work is provided
 // as is; no warranty is provided, and users accept all 
 // liability.
-//
 
-#define LED (1 << 5) // define LED ping
+#define LED (1 << 5) // define LED pin
 
 void setup() {
-   SYSCTRL->OSC8M.bit.PRESC = 0; // set OSC8M clock prescaler to 1
-   REG_PORT_DIR0 |= LED; // set LED pin to output
-   }
+  SYSCTRL->OSC8M.bit.PRESC = 0; // set OSC8M clock prescaler to 1
+  REG_PORT_DIR0 |= LED; // set LED pin to output
+}
 
 void loop() {
-   REG_PORT_OUT0 |= LED; // turn on LED
-   delay(100); // delay
-   REG_PORT_OUT0 &= ~LED; // turn off LED
-   delay(100); // delay
-   }
+  REG_PORT_OUT0 |= LED; // turn on LED
+  delay(100); // delay
+  REG_PORT_OUT0 &= ~LED; // turn off LED
+  delay(100); // delay
+}
 ```
 
 ## [echo](http://academy.cba.mit.edu/classes/embedded_programming/t412/hello.t412.echo.ino)
@@ -102,30 +100,63 @@ static char chr;
 static char buffer[max_buffer] = {0};
 
 void setup() {
-   Serial.swap(1);
-   Serial.begin(115200);
-   }
+  Serial.begin(115200);
+}
 
 void loop() {
-   if (Serial.available() > 0) {
-      chr = Serial.read();
-      Serial.print("hello.t412.echo: you typed \"");
-      buffer[index++] = chr;
-      if (index == (max_buffer-1))
-         index = 0;
-      Serial.print(buffer);
-      Serial.println("\"");
-      }
-   }
+  if (Serial.available() > 0) {
+    chr = Serial.read();
+    Serial.print("hello.t412.echo: you typed \"");
+    buffer[index++] = chr;
+    if (index == (max_buffer-1))
+      index = 0;
+    Serial.print(buffer);
+    Serial.println("\"");
+  }
+}
 ```
 
+## characterizing the board using test instruments
+
+<p align="center">
+  <video width="600" controls>
+    <source src="../videos/wk4/characterization.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</p>
+
+- we can actually see the power being turned on and off on the LED line, at the rate described by the code (100ms on, 100ms off)
+- oscilloscopes should (often) measure with respect to ground
+
 ## week log
+
+- milling complete: the Roland with mods gives markedly better results than the Othermill
+
+![finished milling](../images/wk4/final/milled.jpg)
 
 - DPI export issue on macOS showed up; unfortunately i only caught it after i started milling...
 
 ![double DPI issue...](../images/wk4/final/double_dpi.jpg)
 
+- final board finished without needing to resolder! this week i used ~8 layers of vinyl to buff the thickness of the USB header
+
+![the final board](../images/wk4/final/finished_board.jpg)
+
+<p align="center">
+  <video width="600" controls>
+    <source src="../videos/wk4/blink.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <video width="600" controls>
+    <source src="../videos/wk4/echo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</p>
+
 ## gatsby
+
+- can't use three.js because it's a client side library... still need to figure out how to make server-side rendering skip it
 
 ```javascript
 if (typeof window === "undefined" || !window.document) {
