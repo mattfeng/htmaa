@@ -42,10 +42,10 @@
     - [another useful guide](https://fabacademy.org/2020/labs/ulb/students/quentin-bolsee/projects/samd11c_uart-updi/)
 
 ### programming the board
-- `brew install lsusb`
-
-## links
+- `brew install lsusb`. make sure that your programmer is recognized by the computer
 - [running EDBG](https://gitlab.cba.mit.edu/classes/863.21/site/-/issues/22)
+    - wasn't working on macOS
+- download the bootloader from [embedded programming week](http://academy.cba.mit.edu/classes/embedded_programming/index.html) (search &ldquo;bootloader&rdquo; and click the link)
 
 ## blink
 
@@ -116,8 +116,6 @@ void loop() {
 }
 ```
 
----
-
 ## characterizing the board using test instruments
 
 <p align="center">
@@ -129,8 +127,6 @@ void loop() {
 
 - we can actually see the power being turned on and off on the LED line, at the rate described by the code (100ms on, 100ms off)
 - oscilloscopes should (often) measure with respect to ground
-
----
 
 ## week log
 

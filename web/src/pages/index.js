@@ -44,12 +44,18 @@ const IndexPage = () => (
       <li>
         <Link to="/lec4">lecture 4: electronics design</Link>
       </li>
+      <li>
+        <Link to="/lec5">lecture 5: computer-controlled milling</Link>
+      </li>
     </ul>
 
     <h2>how to make</h2>
     <ul>
       <li>
-        <Link to="/building">how to make (almost) anything</Link>
+        <Link to="/building">small wiki on various building topics</Link>
+      </li>
+      <li>
+        <Link to="/building/glossary">glossary of terms and acronyms</Link>
       </li>
     </ul>
   </div>
