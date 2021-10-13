@@ -61,6 +61,9 @@ module.exports = {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {},
           },
+          {
+            resolve: `gatsby-remark-highlight-code`,
+          },
         ],
       },
     },

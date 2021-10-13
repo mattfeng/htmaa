@@ -4,8 +4,12 @@ import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
 
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
+
 import "../styles/main.scss"
 import * as styles from "../styles/layout.module.scss"
+
+deckDeckGoHighlightElement()
 
 const shortcodes = { Link }
 
