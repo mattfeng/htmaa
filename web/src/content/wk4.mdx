@@ -1,7 +1,7 @@
 # week 4: electronics design
 
-## board
-![Board.](../images/wk4/hello.D11C.echo.1.png)
+## board we are making
+![hello.D11C.echo.1.png, the board we are making this week.](../images/wk4/boards/hello.D11C.echo.1.png)
 
 ## three js
 - accessing dom element from threejs: `renderer.domElement` ([source](https://archive.is/LXTjL))
@@ -9,10 +9,6 @@
 
 ## kicad basics
 ![kicad main menu.](../images/wk4/kicad/kicad_main.jpg)
-
-## learn more
-- https://en.wikipedia.org/wiki/Procedural_modeling
-- https://en.wikipedia.org/wiki/Constructive_solid_geometry
 
 ## making your own symbol
 
@@ -40,4 +36,94 @@
     - `export image`
         - the same, monochrome, with the same DPI
 
+## samd development using arduino
+- arduino pins: [DO NOT FOLLOW the pinout from this link](https://oshwlab.com/wagiminator/samd11c-development-board)
+- [most important website for programming SAMD chip with arduino](http://fabacademy.org/2020/labs/leon/students/adrian-torres/samdino.html)
+    - [another useful guide](https://fabacademy.org/2020/labs/ulb/students/quentin-bolsee/projects/samd11c_uart-updi/)
+
+### programming the board
+- `brew install lsusb`
+
+## links
+- [running EDBG](https://gitlab.cba.mit.edu/classes/863.21/site/-/issues/22)
+
+## blink
+
+```c
+//
+// hello.D11C.blink.ino
+//
+// SAMD11C LED blink hello-world
+//
+// Neil Gershenfeld 11/29/19
+//
+// This work may be reproduced, modified, distributed,
+// performed, and displayed for any purpose. Copyright is
+// retained and must be preserved. The work is provided
+// as is; no warranty is provided, and users accept all 
+// liability.
+//
+
+#define LED (1 << 5) // define LED ping
+
+void setup() {
+   SYSCTRL->OSC8M.bit.PRESC = 0; // set OSC8M clock prescaler to 1
+   REG_PORT_DIR0 |= LED; // set LED pin to output
+   }
+
+void loop() {
+   REG_PORT_OUT0 |= LED; // turn on LED
+   delay(100); // delay
+   REG_PORT_OUT0 &= ~LED; // turn off LED
+   delay(100); // delay
+   }
+```
+
+## [echo](http://academy.cba.mit.edu/classes/embedded_programming/t412/hello.t412.echo.ino)
+
+```c
+// hello.t412.echo.ino
+//
+// tiny412 echo hello-world
+//    115200 baud
+//
+// Neil Gershenfeld 12/8/19
+//
+// This work may be reproduced, modified, distributed,
+// performed, and displayed for any purpose, but must
+// acknowledge this project. Copyright is retained and
+// must be preserved. The work is provided as is; no
+// warranty is provided, and users accept all liability.
+
+#define max_buffer 25
+
+static int index = 0;
+static char chr;
+static char buffer[max_buffer] = {0};
+
+void setup() {
+   Serial.swap(1);
+   Serial.begin(115200);
+   }
+
+void loop() {
+   if (Serial.available() > 0) {
+      chr = Serial.read();
+      Serial.print("hello.t412.echo: you typed \"");
+      buffer[index++] = chr;
+      if (index == (max_buffer-1))
+         index = 0;
+      Serial.print(buffer);
+      Serial.println("\"");
+      }
+   }
+```
+
+## week log
+
+- DPI export issue on macOS showed up; unfortunately i only caught it after i started milling...
+
+![](../images/wk4/final/double_dpi.jpg)
+
+## some issues this week and how to resolve them
 - [proactive DRC ("property change failed")](https://forums.autodesk.com/t5/fusion-360-electronics/property-change-failed-a-k-a-proactive-drc/td-p/9682405)
