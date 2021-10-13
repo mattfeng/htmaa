@@ -1,2 +1,238 @@
 # lecture 5: computer-controlled machining
 
+## machines
+- roland
+- shaper
+    - precision machining
+    - useful for modifying already machined pieces
+- shopbot (~$15k)
+    - **workhorse for this week**
+- onsrud
+    - available in the _arch_ section
+    - much stiffer than the shopbot; more sturdy
+    - **stiffness** = tolerance, machining forces, machining speed
+- tormach
+- haas
+- hurco
+    - available in the _cba_ shop
+    - 1 ft work volume
+    - 5-axis cnc
+    - high speed machining of hard metals with complex geometry
+- zund
+- fellesverkstedet (fabricatable machines)
+    - making your own shopbot
+- MTM
+
+## stock (use home depot as a guide)
+  - [rigid foam insulation (gesso, heat gun)](https://www.homedepot.com/p/Owens-Corning-FOAMULAR-NGX-F-250-2-in-x-4-ft-x-8-ft-SSE-R-10-XPS-Rigid-Foam-Board-Insulation-52DDNGX/315197962)
+  - veneer plywood
+  - medium density fiberboard (MDF)
+    - fibers mixed in with glue
+    - pros
+        - machines well (no grain in the wood)
+    - cons
+        - heavy
+        - not good in tension
+        - binders (glue) outgas
+  - medium density overlay (MDO)
+    - MDF with smooth top surface
+  - oriented strand board (OSB) finishing
+    - the &ldquo;sausage&rdquo; of wood
+  - [valchromat](https://www.atlanticplywood.com/brand/valchromat/)
+  - hdpe
+    - makes up cutting boards
+  - lexan, polycarbonate
+    - &ldquo;bulletproof glass&rdquo;
+  - garolite
+    - pcb material
+  - aluminum (composite panel)
+
+## vendors
+- mcmaster-carr
+    - metals, plastic 
+- us plastics
+    - plastics
+- admiral metals
+    - metals
+- home depot
+    - has everything
+    - unpredictable; have to design around what home depot has
+- contractors (lumberyards; often have scrap that can be used)
+    - boulter plywood
+    - steritt lumber
+    - beacon sales
+
+## job shops
+- Plethora
+- Proto Labs
+- Star Rapid
+- Yubo Precision
+- DSH
+- Cycle Start
+- Fast Forward Composites
+- Xometry
+
+## tooling
+- drills vs mills
+    - drill only goes down
+    - endmills can go either down or sideways
+- router, V bits
+    - routers have bits that _only go sideways_
+- flutes
+    - how many flutes?
+- coatings
+- center-cutting
+- up/down cut
+    - up cutting tools: pulls up on the top surface
+    - down cutting tool: clean surface, but no where for chips to go
+    - trick: _down cut_ shallow first, then come back and _up cut_
+- flat/ball end
+    - flat end for main cutting
+    - ball end used for finish cutting
+    - flat end actually can be used for finish cutting too
+
+## speeds and feeds
+- [machinery's handbook](https://books.industrialpress.com/machinery-handbook/)
+- chip load: ~ 0.001-0.010"
+    - feed rate (inches per minute) / (RPM x number of flutes) 
+- **cut depth.** how much depth does the mill advance each round?
+    - rule of thumb: use the _tool diameter_
+- **step-over.** the overlap when cutting adjacent paths
+    - rule of thumb: use _tool diameter / 2_
+
+## lubricants
+- helps with heat transfer
+
+## abrasive machining, grinding
+- endmills are made via _grinding_
+- featureless drill + abrasive slurry = milling glass
+    - **NC (numerical control) griding**
+
+## fixturing
+- vises
+    - NC grinding vises have much tighter tolerances
+- clamps
+    - bar clamps
+    - can lead to bowing of board
+    - only works when on edge of board
+- screws
+    - hold stock with screws, and ensure mill path avoids the screws
+- nails
+- vacuum
+    - vacuum can hold the stock in place
+    - get plugged up; need to be maintained
+- wedges
+- weights
+    - for waterjet cutters because there are no lateral forces
+- glue
+    - machining wax
+- tape
+    - machining wax
+- encapsulation
+    - used for 5-axis machines on complex sheets
+
+## sacrificial layers, squaring
+- cut out a square part to **check that the axes are perpendicular**
+- three layers (bottom to top)
+    - surfaced underlay + sacrificial + workpiece (stock)
+
+## dust collection
+
+## flexures, living hinges, kerfing, steam bending, wacky wood
+- **flexure.** series of small hinges
+- **kerfing.** not milling all the way through the stock
+
+## joinery, reciprocal frame, tensegrity, Maxwell criterion
+- **reciprocal frame.** structures made from joints only
+- **Maxwell's criterion.** number of [joint constraints](https://en.wikipedia.org/wiki/Joint_constraints) need to match the degree of freedom
+    - e.g. bookcase needs X shape tendons, otherwise bookcase can sheer
+
+## toolpaths
+- kerf, offset, runout
+    - 1/8" or 1/4" mill
+    - handling kerf; _need to shift paths by tool size_
+    - **runout.** the wobble in the tool makes the tool diameter larger than expected
+- conventional, climb
+    - climb = cleaner cuts
+    - climb = outward force 
+    - conventional = less force on machine
+    - conventional = leaves rougher surface behind
+- rough/finish cuts
+    - rough = conventional
+    - finish = climb
+    - _rough cuts are done in layers_
+    - finish cuts get the smooth finish
+- high-speed, dry, ramping, adaptive clearing, swarf, rest, trochoidal
+    - mill cuts more effectively at a diagonal
+- one-sided, two-sided, registration
+- 2 (layers), 2.5 (steps), 3 (molds), 4, 3+2, 5 axis
+- tool length compensation
+- cut depth, clearance, collisions
+    - shank, collet can all collide with stock; _need to keep in mind_
+- T-bones, dog-bones
+    - radius of endmill will not have rectangular joints
+    - need to make **T-bones** or **dog-bones** to get rectangular cuts
+- **nesting.** placing the parts to fit well into the stock
+- tabs, onion skinning
+    - need **tabs** or **onion skins** to prevent the nested parts from moving
+- lead-in, lead-out
+- test cuts, cutting air
+    - X/Y flipped
+    - origin wrong
+    - Z wrong
+    - **cutting air.** run your job away from the stock (Z axis away from the table)
+    - **test cuts.** tiny patch, small cut
+        - cut depth, feed rate
+- simulation
+- prototyping
+    - _make the project in cardboard first_
+
+## CAM
+- CAMotics
+- VCarvePro
+    - comes with _shopbot_
+- FeatureCAM
+    - comes with _Fusion_
+- Mastercam
+    - good industrial strength CAM software
+- HSMWorks
+- CAMWorks
+- Freecad Path
+- Solidworks CAM
+- Fusion 360 Slicer 
+- mods
+    - community
+    - outline
+    - rough
+    - finish
+
+## file formats
+- `.rml`
+- `.sbp`
+- `.g`
+- `.ord`
+
+## safety
+- training
+- cuts, burns, impacts, fires
+- tool breaking
+- glasses, shoes, clothes, hair, gloves
+- look, listen, smell
+- don't reach into a powered tool
+- emergency stop, assistance
+
+## welding
+- arc
+- MIG (metal inert gas)
+- TIG (tungsten inert gas)
+- spot
+- friction
+- ultrasonic
+
+## assignment
+- group assignment
+    - do your lab's safety training
+    - test runout, alignment, speeds, feeds, materials, and toolpaths for your machine
+- individual assignment
+    - make (design+mill+assemble) something big (~meter-scale)
+    - extra credit: include curved surfaces
