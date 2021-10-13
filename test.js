@@ -10,6 +10,11 @@ class TestPage extends Component {
     }
 
     componentDidMount() {
+        if (typeof window === "undefined" || !window.document) {
+            console.log(`bailing out because SSR`)
+            return
+        }
+
         globalHistory.listen(() => {
             console.log("hi")
             this.renderer.domElement.remove()
