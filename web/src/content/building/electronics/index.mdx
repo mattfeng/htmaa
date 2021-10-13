@@ -3,7 +3,9 @@
 ## milling pcbs
 - milling using **endmills**, not **drill bits**
 - pitch of legs vs. footprint
-- vias: .017 in
+- **vias**
+    - need the pad to be large enough for endmill to drill through
+    - <C chem="\pu{.017 in}" /> works (??)
 
 ## components
 
@@ -22,11 +24,16 @@
 
 ## designing boards (CAM)
 
+### constraints
+- generally, the bootloading programming header (e.g. the 10 pin JTAG header) should be as close to the MCU as possible (due to time delays)
+
 ### [fab libraries](https://gitlab.fabcloud.org/pub/libraries/electronics)
 - [eagle](https://gitlab.fabcloud.org/pub/libraries/electronics/eagle/)
 - [kicad](https://gitlab.fabcloud.org/pub/libraries/electronics/kicad)
 
 ## bootloader
+- AVRs typically don't use bootloaders
+    - only need a [Serial to UPDI converter](http://academy.cba.mit.edu/classes/embedded_programming/UPDI/hello.serial-UPDI.png) ([image](http://academy.cba.mit.edu/classes/embedded_programming/UPDI/hello.serial-UPDI.jpg))
 
 ## programming
 - [arm target programming](https://gitlab.cba.mit.edu/jakeread/arm-target-programming)

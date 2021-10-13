@@ -65,6 +65,20 @@ module.exports = {
             resolve: `gatsby-remark-highlight-code`,
           },
         ],
+        remarkPlugins: [
+          [
+            require("remark-math"),
+            {
+              strict: `ignore`,
+              macros: {
+                "\\K#1": "\\text{K}_{#1}"
+              }
+            }
+          ],
+        ],
+        rehypePlugins: [
+          require(`rehype-katex`)
+        ]
       },
     },
     `gatsby-plugin-react-helmet`,
