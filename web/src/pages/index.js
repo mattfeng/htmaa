@@ -28,6 +28,10 @@ const IndexPage = () => (
       <li>
         <Link to="/wk4">week 4: electronics design</Link>
       </li>
+    </ul>
+
+    <h2>other links</h2>
+    <ul>
       <li>
         <Link to="/todo">todo: things i want to try</Link>
       </li>
@@ -36,6 +40,9 @@ const IndexPage = () => (
       </li>
       <li>
         <Link to="/graphics">learning graphics</Link>
+      </li>
+      <li>
+        <Link to="/questions">questions and things to look at right away</Link>
       </li>
     </ul>
 
