@@ -7,7 +7,9 @@ const IndexPage = () => (
   <div className={styles.mainContainer}>
     <h1>hello, my name is matt</h1>
     <p>let's build some cool stuff</p>
-    <p><Link to="/about">learn more about me i am fun</Link></p>
+    <p>
+      <Link to="/about">learn more about me i am fun</Link>
+    </p>
 
     <ul>
       <li>
@@ -27,6 +29,9 @@ const IndexPage = () => (
       </li>
       <li>
         <Link to="/wk4">week 4: electronics design</Link>
+      </li>
+      <li>
+        <Link to="/wk5">week 5: computed-controlled machining</Link>
       </li>
     </ul>
 
