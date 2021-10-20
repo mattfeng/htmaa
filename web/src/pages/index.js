@@ -54,10 +54,31 @@ const IndexPage = () => (
     <h2>lecture notes</h2>
     <ul>
       <li>
-        <Link to="/lec4">lecture 4: electronics design</Link>
+        <Link to="/lec4">lec 4: electronics design</Link>
       </li>
       <li>
-        <Link to="/lec5">lecture 5: computer-controlled milling</Link>
+        <Link to="/lec5">lec 5: computer-controlled milling</Link>
+      </li>
+      <li>
+        <Link to="/lec6">lec 6: embedded programming</Link>
+      </li>
+      <li>
+        <Link to="/lec7">lec 7: molding and casting</Link>
+      </li>
+      <li>
+        <Link to="/lec8">lec 8: input devices</Link>
+      </li>
+      <li>
+        <Link to="/lec9">lec 9: output devices</Link>
+      </li>
+      <li>
+        <Link to="/lec10">lec 10: interface and application programming</Link>
+      </li>
+      <li>
+        <Link to="/lec11">lec 11: networking and communications</Link>
+      </li>
+      <li>
+        <Link to="/lec12">lec 12: mechanical machine design</Link>
       </li>
     </ul>
 

@@ -1,0 +1,41 @@
+# lec 6: embedded programming
+
+## memory
+- SRAM: fast read/write, can't modify (need to retrieve into register first)
+
+## peripherals
+- ports
+- A/D (analog to digital)
+- comparator (compare voltages)
+- D/A (digital to analog)
+- timer/counter/PWM
+- USART (serial communcation)
+- USB
+
+## families
+- we will use AVR and ARM
+- AVR
+    - DB family has analog signal processing (_amplifiers_)
+- ARM
+    - ARM chips are manufactured [Microchip](https://www.microchip.com/)
+    - 32 bits, _USB uses 5V; need a 3.3V regulator_
+    - uC has multiple clock zones
+- [Xtensa (the architecture)](https://en.wikipedia.org/wiki/Tensilica)
+    - integrated RF and networking
+    - ESP8366 (8 bit)
+    - ESP32 (32 bit)
+
+## packages (how the chip connects to the board)
+- [QFN (quad-flat-no-leads)](https://en.wikipedia.org/wiki/Flat_no-leads_package)
+
+## programming
+- AVR: programmed with UPDI
+    - Tx and Rx linked with resistor
+    - lets the UPDI pin have two voltages for in and out
+- ARM: programmed with JTAG
+    - subset called SWD
+    - use a program called EDBG to load SWD
+    - FreeDAP is the program that converts a SAMD11C board into one that can program JTAG for other boards
+
+## host communication
+- RS232: original spec for serial communication
