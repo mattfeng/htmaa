@@ -1,0 +1,22 @@
+# microcontrollers (MCUs)
+
+- key feature of mcus is that they have **peripherals**, smaller, special function circuits that the MCU can use to interact with the physical world: setting voltages on pins (i.e. send power to other electronics), read data (voltages) from sensors, etc.
+    - &ldquo;the mcu is our bridge between _computing on data_ and _computing on physical stuff_.&rdquo;
+
+- we generally load programs into _flash_, which is why the process is also called _flashing_ the mcu.
+
+- **toolchain.** any sequence of tools used to turn code into a piece of operating firmware
+
+- bootloaders detect if there is a new program to flash at startup, and flash them if so; otherwise they run the current program in memory
+
+## special function registers (SFRs)
+- the pins that we use to interact with the world? those are called **special function registers**
+- examples of SFRs
+    - SERCOMs (serial communication)
+    - timers
+    - analog/digital convertors (ADCs)
+    - digital/analog convertors (DACs)
+
+
+## references
+- [CBA, The Practical Microcontroller Primer](https://archive.md/Ucjvh)

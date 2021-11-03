@@ -36,6 +36,9 @@ const IndexPage = () => (
       <li>
         <Link to="/wk6">week 6: embedded programming</Link>
       </li>
+      <li>
+        <Link to="/wk7">week 7: molding and casting</Link>
+      </li>
     </ul>
 
     <h2>other links</h2>
