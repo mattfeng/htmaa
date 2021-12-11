@@ -13,9 +13,25 @@
 - [D11C echo board with 10 pin JTAG programmer](http://academy.cba.mit.edu/classes/embedded_programming/D11C/hello.D11C.echo.png)
 - [SnapEDA: finding footprints](https://www.snapeda.com/home/)
 
+``` python
+# create traces
+display none
+display top vias pads
+export image
+
+# create outline
+display none
+display bottom dimension vias
+export image
+```
+
 ## images
 
+<div style="width: 400px; margin: 0 auto;">
+
 ![D11C wiring](./d11c.png)
+
+</div>
 
 ![D11C pinout](./d11c-pinout.jpg)
 
@@ -34,7 +50,7 @@
     <td><code>A1324LLHLT-T</code></td>
     <td>
       <ul>
-        <li><a href="http://academy.cba.mit.edu/classes/input_devices/mag/hello.mag.D11C.png">hello hall effect sensor board</a></li>
+        <li><a href="http://academy.cba.mit.edu/classes/input_devices/mag/hello.mag.D11C.png">neil's demo board for hall effect sensor</a></li>
         <li><a href="/ref/HallEffect_A1324-5-6-Datasheet.pdf">datasheet (from digikey)</a></li>
       </ul>
     </td>
@@ -46,7 +62,9 @@
     <td>ESC headers</td>
     <td>
       <ul>
-        using <code>CONN_03X2-PINHEAD-SMD</code> footprint
+        <li>using <code>CONN_03X2-PINHEAD-SMD</code> footprint</li>
+        <li><a href="http://academy.cba.mit.edu/classes/output_devices/ESC/hello.ESC.44.png">neil's demo board for ESC</a></li>
+        <li>accepts 5V</li>
       </ul>
     </td>
   </tr>
@@ -58,10 +76,21 @@
     <td>
       <ul>
         <li><a href="https://gitlab.cba.mit.edu/classes/863.21/site/-/issues/62">ling dong's notes</a></li>
+        <li>works with both 5V and 3.3V</li>
+        <li><a href="http://academy.cba.mit.edu/classes/output_devices/OLED/hello.SSD1306.45.png">neil's demo board for the SSD1306</a></li>
       </ul>
     </td>
   </tr>
 </table>
+
+## pins
+- ESC
+  - PA05 <RA />
+- A1324 (Hall Effect)
+  - PA02 <RA />
+- OLED display pins
+  - PA14 <RA /> SDA
+  - PA15 <RA /> SCL
 
 ### powering the final project
 - 60A is sourced from LiPo batteries
@@ -69,13 +98,20 @@
 
 ---
 
-## TODO (12/10/2021)
-- design board
-  - design and mill D11C board 
+## TODO
+
+### 12/10/2021
+- [ ] design and mill D11C board 
 - [x] test 3D print with holes for mounting motor
 - [x] model and test 3D print of rotor
 - OLED display with buttons (hardest)
-    - mill board, test writing text
+    - [ ] mill board, test writing text
+
+### 12/11/2021
+- [ ] finish designing board, mill
+- [ ] remake hall effect breakout board with voltage divider on breakout board, not split
+
+---
 
 ## CAD notes
 - need to add hole for ESC wires to loop beneath divider of circuits and centrifuge interface
@@ -93,7 +129,10 @@
 
 </div>
 
-### oled stuff
+### board
+
+
+---
 
 ## questions
 - potentiometer; no handle?

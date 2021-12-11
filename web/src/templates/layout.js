@@ -14,7 +14,11 @@ require("katex/dist/katex.min.css")
 
 deckDeckGoHighlightElement()
 
-const shortcodes = { Link, C: Chem }
+const RightArrow = () => {
+  return <span>&rarr;</span>
+}
+
+const shortcodes = { Link, C: Chem, RA: RightArrow }
 
 export default function Layout({ data }) {
   const post = data.mdx
