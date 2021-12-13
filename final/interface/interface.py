@@ -29,6 +29,7 @@ def main(port):
     slow_btn = Button(root, text="Slow (800 rpm)", command=lambda: set_speed(2),activeforeground="#f00")
     medium_btn = Button(root, text="Medium (2000 rpm)", command=lambda: set_speed(3),activeforeground="#f00")
     fast_btn = Button(root, text="Fast (4000 rpm)", command=lambda: set_speed(5),activeforeground="#f00")
+    # fastest_btn = Button(root, text="Fastest (8000 rpm)", command=lambda: set_speed(1),activeforeground="#f00")
 
     def set_speed(speed):
         if speed == 0:
@@ -37,6 +38,7 @@ def main(port):
             slow_btn["state"] = NORMAL
             medium_btn["state"] = NORMAL
             fast_btn["state"] = NORMAL
+            # fastest_btn["state"] = NORMAL
 
             ser.write(b"0\n")
         elif speed == 2:
@@ -45,6 +47,7 @@ def main(port):
             slow_btn["state"] = ACTIVE
             medium_btn["state"] = NORMAL
             fast_btn["state"] = NORMAL
+            # fastest_btn["state"] = NORMAL
 
             ser.write(b"2\n")
         elif speed == 3:
@@ -53,6 +56,7 @@ def main(port):
             slow_btn["state"] = NORMAL
             medium_btn["state"] = ACTIVE
             fast_btn["state"] = NORMAL
+            # fastest_btn["state"] = NORMAL
 
             ser.write(b"3\n")
         elif speed == 5:
@@ -61,13 +65,25 @@ def main(port):
             slow_btn["state"] = NORMAL
             medium_btn["state"] = NORMAL
             fast_btn["state"] = ACTIVE
+            # fastest_btn["state"] = NORMAL
 
             ser.write(b"5\n")
+
+        elif speed == 1:
+            SPEED = speed
+            stop_btn["state"] = NORMAL
+            slow_btn["state"] = NORMAL
+            medium_btn["state"] = NORMAL
+            fast_btn["state"] = NORMAL
+            # fastest_btn["state"] = ACTIVE
+
+            ser.write(b"1\n")
 
     stop_btn.pack()
     slow_btn.pack()
     medium_btn.pack()
     fast_btn.pack()
+    # fastest_btn.pack()
 
     # start idle loop
     # root.after(100, idle, root, ser)
