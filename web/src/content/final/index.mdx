@@ -1,13 +1,14 @@
 # diy centrifuge for DNA extraction
 
-## things to buy
-- [BLDC motor](https://www.amazon.com/Jrelecs-Upgrade-Waterproof-3000KV-Brushless/dp/B07F2Z99D1/)
-- [LiPo Battery](https://www.amazon.com/HRB-50C-100C-Quadcopter-Helicopter-Airplane/dp/B06XNTHQRZ)
+## bill of parts
 
-## LiPo batteries
-- 1S = 3.7V
-- 2S = 7.4V 
-- **discharge rating (&ldquo;C&rdquo; rating).** the discharge rating describes the maximum number of amps that can be pushed from the battery
+|count|part|price|link/vendor|
+|:----|:---|:---:|:---------:|
+|168 sq in|acrylic casing|$0.05 per sq in|[home depot](https://www.homedepot.com/p/OPTIX-48-in-x-96-in-x-1-4-in-Clear-Acrylic-Sheet-MC-102/202038056)|
+|1|bldc motor with esc|$22.88|[amazon](https://www.amazon.com/BGNing-Brushless-Outrunner-Controller-Quadcopter/dp/B00PXVG7VM)|
+|16|8/32 3/4" screw and nut|||
+|4|6/32 1/2" screw and nut|||
+|2|magnets|$0.22 per magnet|[amazon](https://www.amazon.com/SMARTAKE-Refrigerator-Magnets-Multi-Use-Whiteboard/dp/B07D8QPG2Y)|
 
 ## quick links
 - [D11C echo board with 10 pin JTAG programmer](http://academy.cba.mit.edu/classes/embedded_programming/D11C/hello.D11C.echo.png)
@@ -35,11 +36,6 @@ export image
 
 ![D11C pinout](./d11c-pinout.jpg)
 
-## board notes
-- VR 3.3V to D11C 3.3V
-- ESC PWM
-- OLED SDA
-- OLED SCL
 
 ## list of components
 
@@ -89,22 +85,9 @@ export image
   </tr>
 </table>
 
-## pins
-- ESC
-  - PA05 <RA />
-- A1324 (Hall Effect)
-  - PA02 <RA />
-- OLED display pins
-  - PA14 <RA /> SDA
-  - PA15 <RA /> SCL
-
-### powering the final project
-- 60A is sourced from LiPo batteries
-- mini USB connectors
-
 ---
 
-## TODO
+## todo schedule
 
 ### 12/10/2021
 - [ ] design and mill D11C board 
@@ -114,8 +97,10 @@ export image
     - [ ] mill board, test writing text
 
 ### 12/11/2021
-- [ ] finish designing board, mill
+- [x] finish designing board, mill
 - [ ] remake hall effect breakout board with voltage divider on breakout board, not split
+
+### 12/12/2021
 
 ---
 
@@ -126,7 +111,15 @@ export image
 
 ## build log
 
-### rotor and dimensions
+### basic knowledge
+
+- **batteries**
+  - LiPo batteries typically listed as _1S_, _2S_, _3S_, etc. each `S` represents a battery cell, which corresponds to more voltage:
+    - <C chem="\mathrm{1\ S} = \pu{3.7V}" />
+    - <C chem="\mathrm{2\ S} = 2 \times \pu{3.7V} = \pu{7.4V}" />
+  - LiPo batteries also have a **discharge rating (&ldquo;C&rdquo; rating).** the discharge rating describes the _maximum number of amps_ that can be safely pushed from the battery
+
+### cad
 - [**1.5 mL Eppendorf tube**](https://www.amazon.com/Globe-Scientific-111558-Polypropylene-Microcentrifuge/dp/B00577ZQH8/)
 
 <div style="width: 300px; margin: 0 auto;">
@@ -135,10 +128,28 @@ export image
 
 </div>
 
+
+### rotor and dimensions
+
 ### board
 
+- I had to mill the board over 4 times to complete the final project: what a time...
+  - the first board I made was very tightly packed (even following the `fab.dru` design rules) and resulted in a board with weakly adhered traces. likely, i also weakened the traces 
+  - the second board
+  - the third board was correct
+  - the (second try) of the third board
+  - the fourth board worked &mdash; annoyingly, i also ripped a trace off when i was trying to clean up the board of stray traces to prevent shorts, which made me have to remill the board
+
+- **pinout**
+  - ESC
+    - PA14 <RA /> ESC PWM signal
+  - A1324 (Hall Effect)
+    - PA02 <RA /> Hall effect output voltage
 
 ### ESC motor
+
+**calibrating the ESC motor.** probably the most annoying yet also satisfying moments was getting the ESC motor calibrated and running.
+
 - calibration didn't work because pin 5 wasn't working
 - power on with high pulses, wait until beeps
 - turn off
@@ -150,8 +161,9 @@ export image
 - set to speed less than high
 - for some reason, 
 
+i was also wondering where the power (5V) came from in the [ESC demo board](http://academy.cba.mit.edu/classes/output_devices/ESC/hello.ESC.44.png) ([components](http://academy.cba.mit.edu/classes/output_devices/ESC/hello.ESC.44.jpg)); i think it's not actually a used connection and that voltage comes from the external source that powers the motor.
+
 ---
 
 ## questions
 - potentiometer; no handle?
-- where is 5V coming from in the [ESC demo board](http://academy.cba.mit.edu/classes/output_devices/ESC/hello.ESC.44.png) ([components(http://academy.cba.mit.edu/classes/output_devices/ESC/hello.ESC.44.jpg))?

@@ -21,3 +21,12 @@ a {
 .katex {
     font-size: 1em !important;
 }
+
+deckgo-highlight-code {
+    font-size: 11pt;
+    box-shadow: #ccc 0px 2px 8px;
+
+    code {
+        font-size: 0.8em;
+    }
+}
