@@ -13,7 +13,7 @@ const IndexPage = () => (
 
     <ul>
       <li>
-        <Link to="/final">final project: liquid handling system</Link>
+        <Link to="/final">final project: diy centrifuge</Link>
       </li>
       <li>
         <Link to="/wk0">week 0: computer-aided design</Link>
