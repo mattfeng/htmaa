@@ -31,13 +31,25 @@ const IndexPage = () => (
         <Link to="/wk4">week 4: electronics design</Link>
       </li>
       <li>
-        <Link to="/wk5">week 5: computed-controlled machining</Link>
+        <Link to="/wk5">week 5: computer-controlled machining</Link>
       </li>
       <li>
         <Link to="/wk6">week 6: embedded programming</Link>
       </li>
       <li>
         <Link to="/wk7">week 7: molding and casting</Link>
+      </li>
+      <li>
+        <Link to="/wk8">week 8: input devices</Link>
+      </li>
+      <li>
+        <Link to="/wk9">week 9: output devices</Link>
+      </li>
+      <li>
+        <Link to="/wk10">week 10: interface and application programming</Link>
+      </li>
+      <li>
+        <Link to="/wk11">week 11: networking and communications</Link>
       </li>
     </ul>
 
@@ -57,7 +69,7 @@ const IndexPage = () => (
       </li>
     </ul>
 
-    <h2>lecture notes</h2>
+    {/* <h2>lecture notes</h2>
     <ul>
       <li>
         <Link to="/lec4">lec 4: electronics design</Link>
@@ -86,7 +98,7 @@ const IndexPage = () => (
       <li>
         <Link to="/lec12">lec 12: mechanical machine design</Link>
       </li>
-    </ul>
+    </ul> */}
 
     <h2>how to make</h2>
     <ul>
