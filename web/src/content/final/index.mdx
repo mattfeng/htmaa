@@ -10,106 +10,9 @@
 |4|6/32 1/2" screw and nut|||
 |2|magnets|$0.22 per magnet|[amazon](https://www.amazon.com/SMARTAKE-Refrigerator-Magnets-Multi-Use-Whiteboard/dp/B07D8QPG2Y)|
 
-## quick links
-- [D11C echo board with 10 pin JTAG programmer](http://academy.cba.mit.edu/classes/embedded_programming/D11C/hello.D11C.echo.png)
-- [SnapEDA: finding footprints](https://www.snapeda.com/home/)
-
-``` python
-# create traces
-display none
-display top vias pads
-export image
-
-# create outline
-display none
-display bottom dimension vias
-export image
-```
-
-## images
-
-<div style="width: 400px; margin: 0 auto;">
-
-![D11C wiring](./d11c.png)
-
-</div>
-
-![D11C pinout](./d11c-pinout.jpg)
-
-
-## list of components
-
-<table>
-  <tr>
-    <th>type of component</th>
-    <th>component number</th>
-    <th>notes</th>
-  </tr>
-  <tr>
-    <td>
-      <a href="">analog hall effect sensor</a>
-    </td>
-    <td><code>A1324LLHLT-T</code></td>
-    <td>
-      <ul>
-        <li><a href="http://academy.cba.mit.edu/classes/input_devices/mag/hello.mag.D11C.png">neil's demo board for hall effect sensor</a></li>
-        <li><a href="/ref/HallEffect_A1324-5-6-Datasheet.pdf">datasheet (from digikey)</a></li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      ESC
-    </td>
-    <td>ESC headers</td>
-    <td>
-      <ul>
-        <li>using <code>CONN_03X2-PINHEAD-SMD</code> footprint</li>
-        <li><a href="http://academy.cba.mit.edu/classes/output_devices/ESC/hello.ESC.44.png">neil's demo board for ESC</a></li>
-        <li>accepts 5V</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      OLED
-    </td>
-    <td><code>SSD1315</code></td>
-    <td>
-      <ul>
-        <li><a href="https://gitlab.cba.mit.edu/classes/863.21/site/-/issues/62">ling dong's notes</a></li>
-        <li>works with both 5V and 3.3V</li>
-        <li><a href="http://academy.cba.mit.edu/classes/output_devices/OLED/hello.SSD1306.45.png">neil's demo board for the SSD1306</a></li>
-      </ul>
-    </td>
-  </tr>
-</table>
-
----
-
-## todo schedule
-
-### 12/10/2021
-- [ ] design and mill D11C board 
-- [x] test 3D print with holes for mounting motor
-- [x] model and test 3D print of rotor
-- OLED display with buttons (hardest)
-    - [ ] mill board, test writing text
-
-### 12/11/2021
-- [x] finish designing board, mill
-- [ ] remake hall effect breakout board with voltage divider on breakout board, not split
-
-### 12/12/2021
-
----
-
-## CAD notes
-- need to add hole for ESC wires to loop beneath divider of circuits and centrifuge interface
-
----
-
 ## build log
+
+- [look here for notes that i took while building the project (e.g. measurements, reference pics, etc.)](./notes)
 
 ### basic knowledge
 
@@ -163,7 +66,11 @@ export image
 
 i was also wondering where the power (5V) came from in the [ESC demo board](http://academy.cba.mit.edu/classes/output_devices/ESC/hello.ESC.44.png) ([components](http://academy.cba.mit.edu/classes/output_devices/ESC/hello.ESC.44.jpg)); i think it's not actually a used connection and that voltage comes from the external source that powers the motor.
 
----
 
-## questions
-- potentiometer; no handle?
+## the end result
+
+<div style="text-align: center; margin: 0 auto;">
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PYBzR6Y6vOw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</div>

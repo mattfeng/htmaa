@@ -1,0 +1,16 @@
+[
+  {
+    "term": "quad flat package",
+    "abrv": ["QFP", "TQFP", "LQFP"],
+    "defn": "a surface-mounted package with pins extending from each of the four sides; TQFP stands for \"thin\", and LQFP stands for \"low profile\""
+  },
+  {
+    "term": "Serial Peripheral Interface",
+    "abrv": ["SPI"],
+    "defn": "a serial bus communiation protocol"
+  },
+  {
+    "term": "bit bang",
+    "defn": "slang for any method of data transmission that employs software as a substitute for dedicated hardware to generate transmitted signals or process received signals"
+  }
+]
